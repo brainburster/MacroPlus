@@ -8,8 +8,9 @@
 #include "MacroPlus.hpp"
 
 #define sequence_1_5 1, 2, 3, 4, 5
-#define testvalue(x) Test<x>::value
-#define dogbark(x) dog##x.bark()
+#define Fibonacci(x) Fibo<x>::value
+#define exec(x) process##x.exec()
+#define square(x) (x*x)
 #define $print(...) ::std::cout<< ' ' << $tocstr(__VA_ARGS__) << ::std::endl;
 
 int main(int argc, char const *argv[])
@@ -17,9 +18,9 @@ int main(int argc, char const *argv[])
     $print(
         $normalize(1,,,,,,,,,,2) \n
         $reduce(+, sequence_1_5) \n
-        $reduce(+, $map(power2, sequence_1_5)) \n
-        $reduce(&&, $map(testvalue, sequence_1_5)) \n
-        $reduce(->, $map(dogbark, sequence_1_5)) \n
+        $reduce(+, $map(square, sequence_1_5)) \n
+        $reduce(*, $map(Fibonacci, sequence_1_5)) \n
+        $reduce(&&, $map(exec, sequence_1_5)) \n
     )
 
 
@@ -56,7 +57,6 @@ int main(int argc, char const *argv[])
 
 
 
-
 ```
 
 ## Output
@@ -65,12 +65,12 @@ int main(int argc, char const *argv[])
 
  1, 2 
  1 + 2 + 3 + 4 + 5 
- power2(1) + power2(2) + power2(3) + power2(4) + power2(5) 
- Test<1>::value && Test<2>::value && Test<3>::value && Test<4>::value && Test<5>::value 
- dog1.bark() -> dog2.bark() -> dog3.bark() -> dog4.bark() -> dog5.bark() 
+ (1*1) + (2*2) + (3*3) + (4*4) + (5*5) 
+ Fibo<1>::value * Fibo<2>::value * Fibo<3>::value * Fibo<4>::value * Fibo<5>::value 
+ process1.exec() && process2.exec() && process3.exec() && process4.exec() && process5.exec() 
 
- strawberry 
- 
+ $rm_check(strawberry) 
+ $rm_check(tomato) 
  apple, banana, orange, strawberry 
 
  apple, banana, orange, tomato, strawberry 

@@ -2,8 +2,9 @@
 #include "MacroPlus.hpp"
 
 #define sequence_1_5 1, 2, 3, 4, 5
-#define testvalue(x) Test<x>::value
-#define dogbark(x) dog##x.bark()
+#define Fibonacci(x) Fibo<x>::value
+#define exec(x) process##x.exec()
+#define square(x) (x*x)
 #define $print(...) ::std::cout<< ' ' << $tocstr(__VA_ARGS__) << ::std::endl;
 
 int main(int argc, char const *argv[])
@@ -11,9 +12,9 @@ int main(int argc, char const *argv[])
     $print(
         $normalize(1,,,,,,,,,,2) \n
         $reduce(+, sequence_1_5) \n
-        $reduce(+, $map(power2, sequence_1_5)) \n
-        $reduce(&&, $map(testvalue, sequence_1_5)) \n
-        $reduce(->, $map(dogbark, sequence_1_5)) \n
+        $reduce(+, $map(square, sequence_1_5)) \n
+        $reduce(*, $map(Fibonacci, sequence_1_5)) \n
+        $reduce(&&, $map(exec, sequence_1_5)) \n
     )
 
 
