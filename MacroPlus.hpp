@@ -151,13 +151,13 @@
 #define $remove(x) x, 
 //usage:
 //#define $rm_42 $remove()
-//$rm_check(5) => 5
-//$rm_check(42) => 0
-#define $_rm_check(x) $_check(x, $fixbug($_cat($rm_, x)))
+//$rm_test(5) => 5
+//$rm_test(42) => 0
+#define $rm_test(x) $_check(x, $fixbug($_cat($rm_, x)))
 
 //#define $rm_4 $remove()
 //$filter(1,2,3,4,5)=> 1, 2, 3, 5
-#define $filter(...) $normalize($map($_rm_check, __VA_ARGS__))
+#define $filter(...) $normalize($map($rm_test, __VA_ARGS__))
 
 //$pack(1,2,3,4,5) => (1,2,3,4,5)
 #define $pack(...) (__VA_ARGS__)

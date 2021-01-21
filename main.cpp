@@ -10,7 +10,7 @@
 int main(int argc, char const *argv[])
 {
     $print(
-        $normalize(1,,,,,,,,,,2) \n
+        $normalize(,,1,,,,,,,,,,2,,,,,3,,,) \n
         $reduce(+, sequence_1_5) \n
         $reduce(+, $map(square, sequence_1_5)) \n
         $reduce(*, $map(Fibonacci, sequence_1_5)) \n
@@ -18,13 +18,13 @@ int main(int argc, char const *argv[])
     )
 
 
-#define FRUITS apple, banana, orange, tomato, strawberry, eggplant 
+#define FRUITS apple, banana, tomato, strawberry, eggplant 
 #define $rm_tomato $remove() //remove tomato
 #define $rm_eggplant $remove() //remove eggplant
 
     $print(
-        $rm_check(strawberry) \n
-        $rm_check(tomato) \n
+        $rm_test(strawberry) \n
+        $rm_test(tomato) \n
         $filter(FRUITS) \n
     )
 
@@ -38,12 +38,13 @@ int main(int argc, char const *argv[])
     )
 
 #define Tree (1, 2, (3, 4), (5, (6, 7)), 8, (((9))))
+#define Flat4Tree $flat4(Tree)
 
     $print(
         $flat(Tree) \n
         $flat2(Tree) \n
         $flat3(Tree) \n
-        $flat4(Tree) \n
+        Flat4Tree \n
     )
 
     return 0;
