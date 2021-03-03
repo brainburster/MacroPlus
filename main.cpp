@@ -18,17 +18,20 @@ int main(int argc, char const *argv[])
     )
 
 
-#define FRUITS apple, banana, tomato, strawberry, eggplant 
+#define FRUITS apple, banana, tomato, strawberry 
 #define $rm_tomato $remove() //remove tomato
-#define $rm_eggplant $remove() //remove eggplant
+#define $rm_strawberry $remove() //remove strawberry
+
 
     $print(
-        $rm_test(strawberry) \n
+        $rm_test(apple) \n
         $rm_test(tomato) \n
         $filter(FRUITS) \n
     )
 
 #undef $rm_tomato
+#undef $rm_strawberry
+
 
     $print(
         $filter(FRUITS) \n
