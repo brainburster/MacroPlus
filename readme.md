@@ -24,17 +24,20 @@ int main(int argc, char const *argv[])
     )
 
 
-#define FRUITS apple, banana, tomato, strawberry, eggplant 
+#define FRUITS apple, banana, tomato, strawberry 
 #define $rm_tomato $remove() //remove tomato
-#define $rm_eggplant $remove() //remove eggplant
+#define $rm_strawberry $remove() //remove strawberry
+
 
     $print(
-        $rm_test(strawberry) \n
+        $rm_test(apple) \n
         $rm_test(tomato) \n
         $filter(FRUITS) \n
     )
 
 #undef $rm_tomato
+#undef $rm_strawberry
+
 
     $print(
         $filter(FRUITS) \n
@@ -62,7 +65,7 @@ int main(int argc, char const *argv[])
 
 ## Output
 
-```
+```cmd
 
  1,2,3 
  1 + 2 + 3 + 4 + 5 
@@ -70,9 +73,9 @@ int main(int argc, char const *argv[])
  Fibo<1>::value * Fibo<2>::value * Fibo<3>::value * Fibo<4>::value * Fibo<5>::value 
  process1.exec() && process2.exec() && process3.exec() && process4.exec() && process5.exec() 
 
- strawberry 
+ apple 
  
- apple, banana, strawberry 
+ apple, banana 
 
  apple, banana, tomato, strawberry 
  7 
